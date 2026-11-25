@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pocket Ledger - Student Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="top">
+      <h1>Pocket Ledger</h1>
+      <button id="themeBtn" type="button">Dark mode</button>
+    </header>
+
+    <!-- Hero: live balance that updates as you add or delete expenses -->
+    <section class="hero">
+      <p class="label">Left to spend</p>
+      <p id="left" class="big">₹0</p>
+      <div class="bar"><div id="barFill"></div></div>
+      <p id="spentText" class="small"></p>
+      <label class="budget">Monthly budget (₹)
+        <input type="number" id="budget" min="0">
+      </label>
+    </section>
+
+    <section class="panel">
+      <h2>Add expense</h2>
+      <form id="form">
+        <input type="text" id="title" placeholder="What did you spend on?" required>
+        <input type="number" id="amount" placeholder="Amount (₹)" min="1" required>
+        <select id="category">
+          <option>Food</option>
+          <option>Travel</option>
+          <option>Study</option>
+          <option>Fun</option>
+          <option>Other</option>
+        </select>
+        <input type="date" id="date" required>
+        <button type="submit" class="primary">Add expense</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Where the money goes</h2>
+      <div id="breakdown"></div>
+    </section>
+
+    <section class="panel">
+      <div class="list-head">
+        <h2>Expenses</h2>
+        <button id="clearBtn" type="button" class="link">Clear all</button>
+      </div>
+      <div class="filters">
+        <input type="search" id="search" placeholder="Search expenses">
+        <select id="filterCat">
+          <option>All</option>
+          <option>Food</option>
+          <option>Travel</option>
+          <option>Study</option>
+          <option>Fun</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <ul id="list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
